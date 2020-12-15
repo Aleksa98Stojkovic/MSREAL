@@ -38,13 +38,13 @@ int main(int argc, char** argv)
 	{
 		
 		printf("Meni:\n");
-		printf("1: Pročitaj trenutno stanje stringa\n
-			    2: Upiši novi string\n
-				3: Konkataniraj string na trenutni\n
-				4: Izbriši čitav string\n
-				5: Izbriši vodeće i prateće space karaktere\n
-				6: Izbriši izraz iz stringa\n
-				7: Izbriši poslednjih n karaktera iz stringa\n");
+		printf("1: Procitaj trenutno stanje stringa\n");
+		printf("2: Upisi novi string\n");
+		printf("3: Konkataniraj string na trenutni\n");
+		printf("4: Izbrisi citav string\n");
+		printf("5: Izbrisi vodece i pratece space karaktere\n");
+		printf("6: Izbrisi izraz iz stringa\n");
+		printf("7: Izbrisi poslednjih n karaktera iz stringa\n");
 		
 		printf("Choose an option:\n");
 		getline(&option, &option_bytes, stdin);
@@ -82,7 +82,7 @@ int main(int argc, char** argv)
 				
 				str = (char*)malloc(str_bytes + 1);
 				printf("Enter a string\n");
-				getline(%str, %str_bytes, stdin);
+				getline(&str, &str_bytes, stdin);
 				
 				fp = fopen(path, "w");
 				if(fp == NULL)
@@ -106,7 +106,7 @@ int main(int argc, char** argv)
 			
 				str = (char*)malloc(str_bytes + 1);
 				printf("Enter a string\n");
-				getline(%str, %str_bytes, stdin);
+				getline(&str, &str_bytes, stdin);
 				
 				fp = fopen(path, "w");
 				if(fp == NULL)
@@ -115,7 +115,7 @@ int main(int argc, char** argv)
 					return -1;
 				}
 				
-				fprintf(fp, "append=%s\n", str); // mozda nova linija ne treba
+				fprintf(fp, "a`ppend=%s\n", str); // mozda nova linija ne treba
 				
 				if(fclose(fp))
 				{
@@ -168,7 +168,7 @@ int main(int argc, char** argv)
 				
 				str = (char*)malloc(str_bytes + 1);
 				printf("Enter a string\n");
-				getline(%str, %str_bytes, stdin);
+				getline(&str, &str_bytes, stdin);
 				
 				fp = fopen(path, "w");
 				if(fp == NULL)
@@ -177,7 +177,7 @@ int main(int argc, char** argv)
 					return -1;
 				}
 				
-				fprintf(fp, "%remove=%s\n", str); // mozda nova linija ne treba
+				fprintf(fp, "remove=%s\n", str); // mozda nova linija ne treba
 				
 				if(fclose(fp))
 				{
@@ -191,7 +191,7 @@ int main(int argc, char** argv)
 			case 7:
 				
 				printf("Enter how many characters do you want to truncate\n");
-				getline(%option, %option_bytes, stdin);
+				getline(&option, &option_bytes, stdin);
 				
 				fp = fopen(path, "w");
 				if(fp == NULL)
@@ -200,7 +200,7 @@ int main(int argc, char** argv)
 					return -1;
 				}
 				
-				fprintf(fp, "%truncate=%s\n", option); // mozda nova linija ne treba
+				fprintf(fp, "truncate=%s\n", option); // mozda nova linija ne treba
 				
 				if(fclose(fp))
 				{
