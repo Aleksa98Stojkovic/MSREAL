@@ -86,7 +86,7 @@ ssize_t stred_read(struct file *pfile, char __user *buffer, size_t length, loff_
 	endRead = 1;
 	
 
-	/*
+	
 	if(down_interruptible(&sem))
 		return -ERESTARTSYS;
 	while(l <= 0)
@@ -97,7 +97,7 @@ ssize_t stred_read(struct file *pfile, char __user *buffer, size_t length, loff_
 		if(down_interruptible(&sem))
 			return -ERESTARTSYS;
 	}
-	*/
+	
 
 	len = scnprintf(buff, BUFF_SIZE, "%s", string);
 	if(len == 0)
@@ -114,10 +114,10 @@ ssize_t stred_read(struct file *pfile, char __user *buffer, size_t length, loff_
 		printk(KERN_INFO "Succesfully read\n");
 	}
 
-	/*
+	
 	up(&sem);
 	wake_up_interruptible(&writeQ);	
-	*/
+	
 
 	return len;
 }
@@ -137,7 +137,7 @@ ssize_t stred_write(struct file *pfile, const char __user *buffer, size_t length
 
 	buff[length-1] = '\0';
 
-	/*
+	
 	if(down_interruptible(&sem))
 		return -ERESTARTSYS;
 	while(l >= STR_SIZE)
@@ -148,7 +148,7 @@ ssize_t stred_write(struct file *pfile, const char __user *buffer, size_t length
 		if(down_interruptible(&sem))
 			return -ERESTARTSYS;
 	}
-	*/
+	
 
 	strcpy(command, buff);
 
@@ -274,10 +274,10 @@ ssize_t stred_write(struct file *pfile, const char __user *buffer, size_t length
 		printk(KERN_WARNING "Wrong command format\n");
 	}
 
-	/*
+	
 	up(&sem);
 	wake_up_interruptible(&readQ);
-	*/
+
 
 	return length;
 }
@@ -286,6 +286,8 @@ static int __init stred_init(void)
 {
    int ret = 0;
 	int i=0;
+	
+   sema_init(&sem,1);
 
 	//Initialize array
 	for (i=0; i< STR_SIZE; i++)
