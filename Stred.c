@@ -107,7 +107,7 @@ ssize_t stred_read(struct file *pfile, char __user *buffer, size_t length, loff_
 	else
 	{
 		ret = copy_to_user(buffer, buff, len);
-		printk(KERN_INFO "String je %s, a njegova duzina %d \n", string, strlen(string));
+	//	printk(KERN_INFO "String je %s, a njegova duzina %d \n", string, strlen(string));
 		if(ret)	
 			return -EFAULT;
 
@@ -162,7 +162,7 @@ ssize_t stred_write(struct file *pfile, const char __user *buffer, size_t length
 	}
 
 
-	printk(KERN_INFO "         Komanda je: %s, a argument: %s \n", command, ptr);
+//	printk(KERN_INFO "Komanda je: %s, a argument: %s \n", command, ptr);
 	if(ret==1)//treba samo jedan parametar da se prosledi
 	{
 		

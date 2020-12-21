@@ -91,7 +91,7 @@ int main(int argc, char** argv)
 					return -1;
 				}
 				
-				fprintf(fp, "string=%s\n", str); // mozda nova linija ne treba
+				fprintf(fp, "string=%s", str); // mozda nova linija ne treba
 				
 				if(fclose(fp))
 				{
@@ -115,7 +115,7 @@ int main(int argc, char** argv)
 					return -1;
 				}
 				
-				fprintf(fp, "a`ppend=%s\n", str); // mozda nova linija ne treba
+				fprintf(fp, "append=%s", str); // mozda nova linija ne treba
 				
 				if(fclose(fp))
 				{
@@ -135,7 +135,7 @@ int main(int argc, char** argv)
 					return -1;
 				}
 				
-				fputs("clear\n", fp); // mozda nova linija ne treba
+				fputs("clear", fp); // mozda nova linija ne treba
 				
 				if(fclose(fp))
 				{
@@ -154,7 +154,7 @@ int main(int argc, char** argv)
 					return -1;
 				}
 				
-				fputs("shrink\n", fp); // mozda nova linija ne treba
+				fputs("shrink", fp); // mozda nova linija ne treba
 				
 				if(fclose(fp))
 				{
@@ -177,7 +177,7 @@ int main(int argc, char** argv)
 					return -1;
 				}
 				
-				fprintf(fp, "remove=%s\n", str); // mozda nova linija ne treba
+				fprintf(fp, "remove=%s", str); // mozda nova linija ne treba
 				
 				if(fclose(fp))
 				{
@@ -200,7 +200,7 @@ int main(int argc, char** argv)
 					return -1;
 				}
 				
-				fprintf(fp, "truncate=%s\n", option); // mozda nova linija ne treba
+				fprintf(fp, "truncate=%s", option); // mozda nova linija ne treba
 				
 				if(fclose(fp))
 				{
